@@ -7,9 +7,9 @@ import DisplayPurchases from './../shared/DisplayPurchases'
 import Loading from './../shared/Loading/Loading'
 import Nav from './../shared/Nav'
 import './Budget.css'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import {requestUserData} from '../../redux/userReducer'
-import {requestBudgetData} from '../../redux/budgetReducer'
+import {requestBudgetData, addPurchase, removePurchase} from '../../redux/budgetReducer'
 
 
 class Budget extends Component {
@@ -33,8 +33,8 @@ class Budget extends Component {
                         lastName={lastName}/>
                     <div className='content-container'>
                         <div className="purchases-container">
-                            <AddPurchase />
-                            <DisplayPurchases puchases={purchases}/>
+                            <AddPurchase addPurchase={this.props.addPurchase}/>
+                            <DisplayPurchases puchases={purchases} removePurchase={this.props.removePurchase}/>
                         </div>
                         <div className='chart-container'>
                             <Chart1 puchases={purchases} budgetLimit={budgetLimit}/>
@@ -53,4 +53,4 @@ const mapStateToProps = state => {
         user: state.user}
 }
 
-export default connect(mapStateToProps,{requestUserData, requestBudgetData})(Budget)
+export default connect(mapStateToProps,{requestUserData, requestBudgetData, addPurchase, removePurchase})(Budget)
