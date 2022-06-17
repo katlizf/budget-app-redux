@@ -7,7 +7,7 @@ const initialState = {
     lastName: null
 }
 
-const reducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case REQUEST_USER_DATA + '_FULFILLED':
             const { email, firstName, lastName } = action.payload.user
@@ -20,11 +20,11 @@ const reducer = (state = initialState, action) => {
 let REQUEST_USER_DATA = 'REQUEST_USER_DATA'
 
 export const requestUserData = () => {
-    const data = axios.get('/auth/user-data').then(res => res.data)
+    let data = axios.get('/auth/user-data').then(res => res.data)
     return {
         type: REQUEST_USER_DATA,
         payload: data
     }
 }
 
-export default reducer
+export default userReducer
