@@ -7,7 +7,7 @@ const initialState = {
     lastName: null
 }
 
-let REQUEST_USER_DATA = 'REQUEST_USER_DATA'
+const REQUEST_USER_DATA = 'REQUEST_USER_DATA'
 // created action type
 
 export const requestUserData = () => {
@@ -18,7 +18,7 @@ export const requestUserData = () => {
     }
 }
 
-export const userReducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
     switch (action.type) {
         case REQUEST_USER_DATA + '_FULFILLED':
             const { email, firstName, lastName } = action.payload.user
@@ -28,4 +28,4 @@ export const userReducer = (state = initialState, action) => {
     }    
 }
 
-export default userReducer
+export default reducer

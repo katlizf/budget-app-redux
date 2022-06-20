@@ -34,11 +34,11 @@ class Budget extends Component {
                     <div className='content-container'>
                         <div className="purchases-container">
                             <AddPurchase addPurchase={this.props.addPurchase}/>
-                            <DisplayPurchases puchases={purchases} removePurchase={this.props.removePurchase}/>
+                            <DisplayPurchases purchases={purchases} removePurchase={this.props.removePurchase}/>
                         </div>
                         <div className='chart-container'>
-                            <Chart1 puchases={purchases} budgetLimit={budgetLimit}/>
-                            <Chart2 puchases={purchases}/>
+                            <Chart1 purchases={purchases} budgetLimit={budgetLimit}/>
+                            <Chart2 purchases={purchases}/>
                         </div>
                     </div>
                 </div>
